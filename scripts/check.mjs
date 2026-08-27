@@ -71,6 +71,14 @@ assert(
   indexHtml.includes("https://github.com/Leviora-Studio/campus-koethen-landing"),
   "Public source repository link is missing",
 );
+assert(
+  indexHtml.includes('<a href="https://leviora.studio">Leviora Studio</a>'),
+  "Leviora Studio footer link is missing",
+);
+assert(
+  englishIndexHtml.includes('<a href="https://leviora.studio">Leviora Studio</a>'),
+  "English Leviora Studio footer link is missing",
+);
 assert(indexHtml.includes("campus-koethen-logo.png"), "Brand logo is missing");
 assert(englishIndexHtml.includes("campus-koethen-logo.png"), "English brand logo is missing");
 assert(indexHtml.includes("app-news-screen-de.png"), "German app screen is missing");

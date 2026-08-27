@@ -376,6 +376,9 @@ h1 em::after {
 .site-footer nav a:focus-visible { color: var(--primary); text-decoration: underline; text-underline-offset: 0.2em; }
 .footer-meta { text-align: right; }
 .footer-meta p { margin: 0; color: var(--text-secondary); font-size: 0.74rem; }
+.footer-meta p a { color: inherit; text-underline-offset: 0.16em; }
+.footer-meta p a:hover,
+.footer-meta p a:focus-visible { color: var(--primary); }
 .footer-meta small { display: block; color: var(--text-secondary); font-size: 0.64rem; }
 
 .legal-body { background: var(--background); }
