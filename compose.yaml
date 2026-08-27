@@ -1,0 +1,10 @@
+services:
+  campus-koethen-landing:
+    image: ghcr.io/leviora-studio/campus-koethen-landing:${IMAGE_TAG:-latest}
+    pull_policy: always
+    restart: unless-stopped
+    environment:
+      GOOGLE_PLAY_URL: ${GOOGLE_PLAY_URL:-}
+      APP_STORE_URL: ${APP_STORE_URL:-}
+    ports:
+      - "127.0.0.1:${LANDING_PORT:-8080}:80"
