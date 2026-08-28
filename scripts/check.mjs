@@ -15,9 +15,10 @@ const requiredFiles = [
   "dist/LICENSE",
   "dist/THIRD_PARTY_NOTICES.md",
   "dist/campus-koethen-icon.png",
+  "dist/campus-koethen-footer-icon.jpg",
   "dist/campus-koethen-logo.png",
-  "dist/app-news-screen-de.png",
-  "dist/app-news-screen-en.png",
+  "dist/app-news-screen-de.jpg",
+  "dist/app-news-screen-en.jpg",
   "dist/fonts/AlbertSans-Variable.ttf",
   "dist/fonts/AlbertSans-OFL.txt",
 ];
@@ -81,8 +82,10 @@ assert(
 );
 assert(indexHtml.includes("campus-koethen-logo.png"), "Brand logo is missing");
 assert(englishIndexHtml.includes("campus-koethen-logo.png"), "English brand logo is missing");
-assert(indexHtml.includes("app-news-screen-de.png"), "German app screen is missing");
-assert(englishIndexHtml.includes("app-news-screen-en.png"), "English app screen is missing");
+assert(indexHtml.includes("app-news-screen-de.jpg"), "German app screen is missing");
+assert(englishIndexHtml.includes("app-news-screen-en.jpg"), "English app screen is missing");
+assert(indexHtml.includes("campus-koethen-footer-icon.jpg"), "German footer icon is missing");
+assert(englishIndexHtml.includes("campus-koethen-footer-icon.jpg"), "English footer icon is missing");
 assert(indexHtml.includes('class="app-preview"'), "Platform-neutral app preview is missing");
 assert(englishIndexHtml.includes('class="app-preview"'), "English app preview is missing");
 assert(!indexHtml.includes('class="phone"'), "Apple-like phone simulation is still present");
@@ -93,24 +96,34 @@ assert(sitemap.includes("https://campuskoethen.sturahsa.de/en/"), "English page 
 assert(sitemap.includes("https://campuskoethen.sturahsa.de/en/legal/"), "English legal page is missing from the sitemap");
 
 await assertFileHash(
-  "site/app-news-screen-de.png",
-  "182267423d7952ebce53a188b66fe6cf6505f90facf946b6adf6a031ffacc2a4",
+  "site/app-news-screen-de.jpg",
+  "b66688137cfa25903c0d4ffab46f7df15d3b5e6a53b79c7067692f75fabc0872",
   "German source screenshot was modified",
 );
 await assertFileHash(
-  "dist/app-news-screen-de.png",
-  "182267423d7952ebce53a188b66fe6cf6505f90facf946b6adf6a031ffacc2a4",
+  "dist/app-news-screen-de.jpg",
+  "b66688137cfa25903c0d4ffab46f7df15d3b5e6a53b79c7067692f75fabc0872",
   "German built screenshot was modified",
 );
 await assertFileHash(
-  "site/app-news-screen-en.png",
-  "05f77cbe85c2c51959bcbbca01131cb588d9fd75dfa1b09f33a13fcca96eff87",
+  "site/app-news-screen-en.jpg",
+  "b5eb5480f86736aa03f5712ce9f97efcc031f4d9e6772a32b242e27c2fd43615",
   "English source screenshot was modified",
 );
 await assertFileHash(
-  "dist/app-news-screen-en.png",
-  "05f77cbe85c2c51959bcbbca01131cb588d9fd75dfa1b09f33a13fcca96eff87",
+  "dist/app-news-screen-en.jpg",
+  "b5eb5480f86736aa03f5712ce9f97efcc031f4d9e6772a32b242e27c2fd43615",
   "English built screenshot was modified",
+);
+await assertFileHash(
+  "site/campus-koethen-footer-icon.jpg",
+  "2fe71dc413b146b3952c8fdd227a84d3935379dbd555026bc50febbd669fd9ab",
+  "Footer source icon was modified",
+);
+await assertFileHash(
+  "dist/campus-koethen-footer-icon.jpg",
+  "2fe71dc413b146b3952c8fdd227a84d3935379dbd555026bc50febbd669fd9ab",
+  "Built footer icon was modified",
 );
 assert(thirdPartyNotices.includes("BSD 2-Clause"), "nginx BSD notice is missing");
 assert(thirdPartyNotices.includes("Alpine Linux"), "Alpine notice is missing");
