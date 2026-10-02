@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://campuskoethen.sturahsa.de/</loc>
+    <loc>https://campus-koethen.sturahsa.de/</loc>
   </url>
   <url>
-    <loc>https://campuskoethen.sturahsa.de/rechtliches/</loc>
+    <loc>https://campus-koethen.sturahsa.de/rechtliches/</loc>
   </url>
   <url>
-    <loc>https://campuskoethen.sturahsa.de/en/</loc>
+    <loc>https://campus-koethen.sturahsa.de/impressum/</loc>
   </url>
   <url>
-    <loc>https://campuskoethen.sturahsa.de/en/legal/</loc>
+    <loc>https://campus-koethen.sturahsa.de/datenschutz/</loc>
+  </url>
+  <url>
+    <loc>https://campus-koethen.sturahsa.de/en/</loc>
+  </url>
+  <url>
+    <loc>https://campus-koethen.sturahsa.de/en/legal/</loc>
+  </url>
+  <url>
+    <loc>https://campus-koethen.sturahsa.de/en/legal-notice/</loc>
+  </url>
+  <url>
+    <loc>https://campus-koethen.sturahsa.de/en/privacy/</loc>
   </url>
 </urlset>

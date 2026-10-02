@@ -6,8 +6,12 @@ const root = resolve(import.meta.dirname, "..");
 const requiredFiles = [
   "dist/index.html",
   "dist/rechtliches/index.html",
+  "dist/impressum/index.html",
+  "dist/datenschutz/index.html",
   "dist/en/index.html",
   "dist/en/legal/index.html",
+  "dist/en/legal-notice/index.html",
+  "dist/en/privacy/index.html",
   "dist/styles.css",
   "dist/app.js",
   "dist/config.js",
@@ -43,6 +47,18 @@ const sitemap = await readFile(resolve(root, "dist/sitemap.xml"), "utf8");
 
 assertMarkdownPreserved(sourceMarkdown, legalHtml, "German");
 assertMarkdownPreserved(englishSourceMarkdown, englishLegalHtml, "English");
+for (const [source, output, language] of [
+  ["website-impressum.md", "dist/impressum/index.html", "German website legal notice"],
+  ["website-datenschutz.md", "dist/datenschutz/index.html", "German website privacy"],
+  ["website-legal-notice.md", "dist/en/legal-notice/index.html", "English website legal notice"],
+  ["website-privacy.md", "dist/en/privacy/index.html", "English website privacy"],
+]) {
+  assertMarkdownPreserved(
+    await readFile(resolve(root, source), "utf8"),
+    await readFile(resolve(root, output), "utf8"),
+    language,
+  );
+}
 
 assert(indexHtml.includes('data-store="googlePlay"'), "Google Play button is missing");
 assert(indexHtml.includes('data-store="appStore"'), "App Store button is missing");
@@ -52,10 +68,16 @@ assert(englishIndexHtml.includes('data-store="appStore"'), "English App Store bu
 assert(englishIndexHtml.match(/aria-disabled="true"/g)?.length === 2, "English store buttons must be disabled by default");
 assert(localConfig.includes('googlePlayUrl: ""'), "Google Play must be empty by default");
 assert(localConfig.includes('appStoreUrl: ""'), "App Store must be empty by default");
-assert(indexHtml.includes("https://campuskoethen.sturahsa.de/"), "Production domain metadata is missing");
-assert(englishIndexHtml.includes("https://campuskoethen.sturahsa.de/en/"), "English production metadata is missing");
+assert(indexHtml.includes("https://campus-koethen.sturahsa.de/"), "Production domain metadata is missing");
+assert(englishIndexHtml.includes("https://campus-koethen.sturahsa.de/en/"), "English production metadata is missing");
 assert(indexHtml.includes('href="/en/"'), "English language switch is missing");
 assert(englishIndexHtml.includes('href="/"'), "German language switch is missing");
+for (const path of ["/impressum/", "/datenschutz/", "/rechtliches/#impressum", "/rechtliches/#datenschutz"]) {
+  assert(indexHtml.includes(`href="${path}"`), `German legal link is missing: ${path}`);
+}
+for (const path of ["/en/legal-notice/", "/en/privacy/", "/en/legal/#legal-notice", "/en/legal/#privacy"]) {
+  assert(englishIndexHtml.includes(`href="${path}"`), `English legal link is missing: ${path}`);
+}
 assert(legalHtml.includes('href="/en/legal/"'), "English legal language switch is missing");
 assert(englishLegalHtml.includes('href="/rechtliches/"'), "German legal language switch is missing");
 assert(indexHtml.includes("AGPL-3.0-only"), "AGPL notice is missing");
@@ -92,8 +114,11 @@ assert(!indexHtml.includes('class="phone"'), "Apple-like phone simulation is sti
 assert(!englishIndexHtml.includes('class="phone"'), "English page contains an Apple-like phone simulation");
 assert(!indexHtml.includes("play-icon"), "A Google-like store icon is still present");
 assert(!indexHtml.includes("apple-icon"), "An Apple-like store icon is still present");
-assert(sitemap.includes("https://campuskoethen.sturahsa.de/en/"), "English page is missing from the sitemap");
-assert(sitemap.includes("https://campuskoethen.sturahsa.de/en/legal/"), "English legal page is missing from the sitemap");
+assert(sitemap.includes("https://campus-koethen.sturahsa.de/en/"), "English page is missing from the sitemap");
+assert(sitemap.includes("https://campus-koethen.sturahsa.de/en/legal/"), "English legal page is missing from the sitemap");
+for (const path of ["impressum/", "datenschutz/", "en/legal-notice/", "en/privacy/"]) {
+  assert(sitemap.includes(`https://campus-koethen.sturahsa.de/${path}`), `Website legal page is missing from the sitemap: ${path}`);
+}
 
 await assertFileHash(
   "site/app-news-screen-de.jpg",

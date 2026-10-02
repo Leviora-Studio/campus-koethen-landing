@@ -1,6 +1,6 @@
 # Campus Köthen Landingpage
 
-Statische deutsch- und englischsprachige Landingpage für die App Campus Köthen. Die Seite wird als nginx-Container ausgeliefert und ist für den Betrieb hinter einem Reverse Proxy unter `campuskoethen.sturahsa.de` vorbereitet. Die deutsche Seite liegt unter `/`, die englische unter `/en/`.
+Statische deutsch- und englischsprachige Landingpage für die App Campus Köthen. Die Seite wird als nginx-Container ausgeliefert und ist für den Betrieb hinter einem Reverse Proxy unter `campus-koethen.sturahsa.de` vorbereitet. Die deutsche Seite liegt unter `/`, die englische unter `/en/`.
 
 ## Lokal bauen
 
@@ -53,21 +53,17 @@ docker compose up -d
 
 Der Container wird ausschließlich unter `127.0.0.1:${LANDING_PORT:-8080}` veröffentlicht und ist damit nicht direkt aus dem Internet erreichbar. Das systemweit installierte nginx auf Ubuntu leitet Anfragen dorthin weiter.
 
-Die vollständige [`nginx.conf`](nginx.conf) ist als Ubuntu-Site-Konfiguration vorbereitet. Ein vorhandenes Let's-Encrypt-Zertifikat wird unter `/etc/letsencrypt/live/campus-koethen.sturahsa.de/` erwartet. Die Konfiguration wird folgendermaßen installiert und aktiviert:
+Im Container sind die Nginx-Zugriffsprotokolle deaktiviert und Nginx-Fehlermeldungen werden nach `/dev/null` geleitet. Der Compose-Dienst verwendet den Docker-Logging-Treiber `none`; auch die Ausgabe des Healthchecks wird verworfen. Das betrifft diesen Container. Das systemweit installierte nginx und Protokolle des Hosts oder des Docker-Daemons müssen bei Bedarf separat konfiguriert werden.
 
-```bash
-sudo mkdir -p /var/www/certbot
-sudo cp nginx.conf /etc/nginx/sites-available/campus-koethen.sturahsa.de
-sudo ln -s /etc/nginx/sites-available/campus-koethen.sturahsa.de /etc/nginx/sites-enabled/campus-koethen.sturahsa.de
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
-Falls der Symlink bereits existiert, wird der `ln`-Befehl ausgelassen. Vor dem Aktivieren muss das TLS-Zertifikat vorhanden sein; andernfalls schlägt `nginx -t` absichtlich fehl.
+Die im Repository vorhandene [`nginx.conf`](nginx.conf) benennt `campus-koethen.sturahsa.de`, ist aber kein verifizierter Abzug der aktiven Host-Konfiguration. Vor Änderungen am Host sind die wirksame Nginx-Konfiguration, das TLS-Zertifikat und die Log-Einstellungen dort zu prüfen.
 
 ## Rechtliche Inhalte
 
-`datenschutz-und-impressum.md` und `legal-notice-and-privacy.md` sind die verbindlichen Quellen. Beim Build entstehen daraus `/rechtliches/` und `/en/legal/`. Der Build-Test prüft für beide Sprachfassungen, dass alle Textzeilen in derselben Reihenfolge enthalten sind.
+`datenschutz-und-impressum.md` und `legal-notice-and-privacy.md` sind die Quellen für das App-Impressum und den App-Datenschutz unter `/rechtliches/` und `/en/legal/`. Die eigenständigen Quellen `website-impressum.md`, `website-datenschutz.md`, `website-legal-notice.md` und `website-privacy.md` erzeugen das Website-Impressum und den Website-Datenschutz unter `/impressum/`, `/datenschutz/`, `/en/legal-notice/` und `/en/privacy/`. Der Build-Test prüft, dass die Texte in allen sechs erzeugten Seiten vollständig und in derselben Reihenfolge enthalten sind.
+
+Die Website-Rechtstexte berücksichtigen die vom Betreiber bestätigte gemeinsame Serverumgebung: Hostinger-VPS in Deutschland, globale Host-Nginx-Einstellungen ohne Zugriffs- und Fehlerprotokolle, lokale System- und Sicherheitsprotokolle im regulären Betrieb etwa 15 Tage sowie zwei wöchentliche EU-Backups mit möglichen Kopien dieser Einträge bis etwa 29 Tage nach Entstehung. Die wirksamen Host-Nginx-Einstellungen für diese Domain sind im Repository nicht nachweisbar; Server- und Location-Blöcke können die globalen Vorgaben überschreiben. Vor Veröffentlichung sind außerdem die tatsächlich laufende Container-Konfiguration sowie eigene Logs und abweichende Backup-Regeln von Hostinger zu prüfen. Die für allgemeine Website-Anfragen festgelegte Löschung spätestens sechs Monate nach Bearbeitungsabschluss muss im E-Mail-Postfach organisatorisch umgesetzt werden.
+
+Nach Betreiberangabe ist derzeit kein Datenschutzbeauftragter benannt. Die Studierendenschaft ist eine Körperschaft des öffentlichen Rechts; eine mögliche Benennungspflicht nach Art. 37 Abs. 1 Buchst. a DSGVO ist deshalb zeitnah zu klären und gegebenenfalls zu erfüllen. Bis zur tatsächlichen Benennung nennen die Website-Texte für Datenschutzanfragen die Kontaktadresse der Studierendenschaft.
 
 Der Quellcode ist öffentlich im [GitHub-Repository](https://github.com/Leviora-Studio/campus-koethen-landing) verfügbar und wird auf der Landingpage im Footer verlinkt.
 

@@ -23,13 +23,74 @@ await buildLegalPage({
   templatePath: resolve(siteDirectory, "legal-template-en.html"),
   outputPath: resolve(outputDirectory, "en", "legal", "index.html"),
 });
+for (const page of [
+  {
+    source: "website-impressum.md",
+    template: "website-legal-template.html",
+    output: ["impressum", "index.html"],
+    tokens: {
+      TITLE: "Website-Impressum – Campus Köthen",
+      DESCRIPTION: "Impressum der Campus-Köthen-Website.",
+      DE_PATH: "/impressum/",
+      EN_PATH: "/en/legal-notice/",
+    },
+  },
+  {
+    source: "website-datenschutz.md",
+    template: "website-legal-template.html",
+    output: ["datenschutz", "index.html"],
+    tokens: {
+      TITLE: "Website-Datenschutz – Campus Köthen",
+      DESCRIPTION: "Datenschutzerklärung der Campus-Köthen-Website.",
+      DE_PATH: "/datenschutz/",
+      EN_PATH: "/en/privacy/",
+    },
+  },
+  {
+    source: "website-legal-notice.md",
+    template: "website-legal-template-en.html",
+    output: ["en", "legal-notice", "index.html"],
+    tokens: {
+      TITLE: "Website legal notice – Campus Köthen",
+      DESCRIPTION: "Legal notice for the Campus Köthen website.",
+      DE_PATH: "/impressum/",
+      EN_PATH: "/en/legal-notice/",
+    },
+  },
+  {
+    source: "website-privacy.md",
+    template: "website-legal-template-en.html",
+    output: ["en", "privacy", "index.html"],
+    tokens: {
+      TITLE: "Website privacy – Campus Köthen",
+      DESCRIPTION: "Privacy notice for the Campus Köthen website.",
+      DE_PATH: "/datenschutz/",
+      EN_PATH: "/en/privacy/",
+    },
+  },
+]) {
+  await buildLegalPage({
+    markdownPath: resolve(root, page.source),
+    templatePath: resolve(siteDirectory, page.template),
+    outputPath: resolve(outputDirectory, ...page.output),
+    tokens: page.tokens,
+  });
+}
 await rm(resolve(outputDirectory, "legal-template.html"));
 await rm(resolve(outputDirectory, "legal-template-en.html"));
+await rm(resolve(outputDirectory, "website-legal-template.html"));
+await rm(resolve(outputDirectory, "website-legal-template-en.html"));
 
-async function buildLegalPage({ markdownPath, templatePath, outputPath }) {
+async function buildLegalPage({ markdownPath, templatePath, outputPath, tokens = {} }) {
   const legalMarkdown = await readFile(markdownPath, "utf8");
   const legalContent = renderMarkdown(legalMarkdown);
-  const legalTemplate = await readFile(templatePath, "utf8");
+  let legalTemplate = await readFile(templatePath, "utf8");
+  for (const [key, value] of Object.entries(tokens)) {
+    legalTemplate = legalTemplate.replaceAll(`{{${key}}}`, value);
+  }
+  if (/\{\{[A-Z_]+\}\}/.test(legalTemplate)) {
+    throw new Error(`Unresolved legal template token in ${templatePath}`);
+  }
   const legalPage = legalTemplate.replace("<!-- LEGAL_CONTENT -->", legalContent);
 
   await mkdir(resolve(outputPath, ".."), { recursive: true });
@@ -105,6 +166,7 @@ function renderInline(value) {
 }
 
 function sanitiseHref(value) {
+  if (value.startsWith("/") && !value.startsWith("//")) return value;
   return /^(https:\/\/|mailto:|tel:)/.test(value) ? value : "#";
 }
 

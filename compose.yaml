@@ -3,6 +3,8 @@ services:
     image: ghcr.io/leviora-studio/campus-koethen-landing:${IMAGE_TAG:-latest}
     pull_policy: always
     restart: unless-stopped
+    logging:
+      driver: none
     environment:
       GOOGLE_PLAY_URL: ${GOOGLE_PLAY_URL:-}
       APP_STORE_URL: ${APP_STORE_URL:-}

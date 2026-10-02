@@ -10,6 +10,9 @@ LABEL org.opencontainers.image.source="https://github.com/Leviora-Studio/campus-
 LABEL org.opencontainers.image.licenses="AGPL-3.0-only AND LicenseRef-ThirdParty-Components"
 LABEL org.opencontainers.image.documentation="https://github.com/Leviora-Studio/campus-koethen-landing/blob/main/THIRD_PARTY_NOTICES.md"
 
+ENV NGINX_ENTRYPOINT_QUIET_LOGS=1
+
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY docker/40-generate-app-config.sh /docker-entrypoint.d/40-generate-app-config.sh
 COPY --from=build /app/dist /usr/share/nginx/html
@@ -20,4 +23,4 @@ RUN chmod +x /docker-entrypoint.d/40-generate-app-config.sh
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --quiet --spider http://127.0.0.1/ || exit 1
+  CMD wget --quiet --spider http://127.0.0.1/ >/dev/null 2>&1 || exit 1
