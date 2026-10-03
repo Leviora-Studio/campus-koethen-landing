@@ -66,7 +66,7 @@ This policy will be updated if features, recipients or legal requirements change
 
 ## Independence notice
 
-Campus Köthen is not an official Hochschule Anhalt app. The app is independently developed and distributed through app stores by Erik Engler, trading as “Leviora Studio”. The Campus backend and editorial content are operated by the legally independent student body of Hochschule Anhalt. Hochschule Anhalt itself neither develops nor operates the app.
+Campus Köthen is not an official Hochschule Anhalt app. The app is independently distributed through app stores by Erik Engler. The Campus backend and editorial content are operated by the legally independent student body of Hochschule Anhalt. Hochschule Anhalt itself neither develops nor operates the app.
 
 # Legal notice
 
@@ -115,4 +115,4 @@ Copyright © 2026 Erik Engler, trading as “Leviora Studio”, and Jona Loreen 
 
 ## Independence notice
 
-Campus Köthen is not an official Hochschule Anhalt app. The app is independently developed and distributed through app stores by Erik Engler, trading as “Leviora Studio”. The Campus backend and editorial content are operated by the legally independent student body of Hochschule Anhalt. Hochschule Anhalt itself neither develops nor operates the app.
+Campus Köthen is not an official Hochschule Anhalt app. The app is independently distributed through app stores by Erik Engler. The Campus backend and editorial content are operated by the legally independent student body of Hochschule Anhalt. Hochschule Anhalt itself neither develops nor operates the app.
