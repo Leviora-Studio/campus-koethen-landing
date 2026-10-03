@@ -1,4 +1,4 @@
-# Third-party notices
+# Licence and rights notices
 
 Campus Köthen source code is licensed under `AGPL-3.0-only`. The components
 listed below remain subject to their own licenses and are not relicensed under
@@ -6,6 +6,21 @@ the GNU Affero General Public License.
 
 `LicenseRef-ThirdParty-Components` in the container metadata refers to the
 components documented here and in the SPDX SBOM attached to each image.
+`LicenseRef-Website-Assets` refers to the separately permitted website images
+listed below.
+
+## Website images and branding
+
+Erik Engler created `campus-koethen-logo.png`, `campus-koethen-icon.png`,
+`site/og.png`, `site/campus-koethen-footer-icon.jpg`,
+`site/app-news-screen-de.jpg` and `site/app-news-screen-en.jpg`, including the
+editorial text shown in the screenshots. He has permitted their use on this
+website. The rendered Tabler Icons in the screenshots retain their MIT license
+as described below.
+
+These files are not licensed under `AGPL-3.0-only`. This website-specific
+permission does not grant third parties a general right to reuse the files
+commercially. Any such use requires separate permission from the rights holder.
 
 ## Albert Sans
 
@@ -29,7 +44,7 @@ available from https://github.com/tabler/tabler-icons.
 
 Copyright (c) 2020 bigbadbob2003
 
-Copyright (c) 2020-2026 Paweł Kuna
+Copyright (c) 2020-2024 Paweł Kuna
 
 Both projects are distributed under the MIT License:
 
@@ -61,8 +76,34 @@ image, pinned to
 The official Dockerfiles and source are available at
 https://github.com/nginx/docker-nginx and https://github.com/nginx/nginx.
 
-nginx and the official nginx Dockerfiles are distributed under the following
-BSD 2-Clause license:
+nginx is distributed under the following BSD 2-Clause license
+(https://github.com/nginx/nginx/blob/release-1.31.4/LICENSE):
+
+> Copyright (C) 2002-2021 Igor Sysoev
+> Copyright (C) 2011-2026 Nginx, Inc.
+> All rights reserved.
+>
+> Redistribution and use in source and binary forms, with or without
+> modification, are permitted provided that the following conditions are met:
+> 1. Redistributions of source code must retain the above copyright notice,
+>    this list of conditions and the following disclaimer.
+> 2. Redistributions in binary form must reproduce the above copyright notice,
+>    this list of conditions and the following disclaimer in the documentation
+>    and/or other materials provided with the distribution.
+>
+> THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND ANY
+> EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+> WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+> DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+> DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+> (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+> LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+> ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+> (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+> SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The official nginx Dockerfiles have their own BSD 2-Clause copyright notice
+(https://github.com/nginx/docker-nginx/blob/master/LICENSE):
 
 > Copyright (C) 2011-2023 F5, Inc.
 >
@@ -96,8 +137,10 @@ available from https://gitlab.alpinelinux.org/alpine/aports and
 https://pkgs.alpinelinux.org/.
 
 The GitHub Actions build publishes an SPDX software bill of materials (SBOM)
-with every container image. That SBOM is authoritative for the exact package
-versions and license identifiers contained in each architecture-specific image.
+with every container image. It records the detected package versions and
+declared license identifiers for each architecture-specific image. The SBOM
+does not replace the packages' full license texts or establish that every
+component and obligation has been identified.
 
 ## Node.js build image
 

@@ -7,7 +7,7 @@ RUN npm run build && npm run check
 FROM nginx:1.31.4-alpine@sha256:db35bfc6b2951e7f8a72db5db120288c127ffaeeb4a6d4b95a26fead017d5913
 
 LABEL org.opencontainers.image.source="https://github.com/Leviora-Studio/campus-koethen-landing"
-LABEL org.opencontainers.image.licenses="AGPL-3.0-only AND LicenseRef-ThirdParty-Components"
+LABEL org.opencontainers.image.licenses="AGPL-3.0-only AND LicenseRef-ThirdParty-Components AND LicenseRef-Website-Assets"
 LABEL org.opencontainers.image.documentation="https://github.com/Leviora-Studio/campus-koethen-landing/blob/main/THIRD_PARTY_NOTICES.md"
 
 ENV NGINX_ENTRYPOINT_QUIET_LOGS=1

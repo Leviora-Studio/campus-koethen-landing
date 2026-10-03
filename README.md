@@ -15,7 +15,7 @@ Das fertige Webverzeichnis liegt danach unter `dist/`.
 
 ## Branding
 
-Die gelieferten Dateien `campus-koethen-logo.png`, `campus-koethen-icon.png`, `site/app-news-screen-de.png` und `site/app-news-screen-en.png` werden beim Build unverändert als Web-Assets übernommen. Die Website verwendet die selbst gehostete Variable Font Albert Sans; ihre OFL-Lizenz liegt unter `site/fonts/AlbertSans-OFL.txt`. Die App-Screenshots erhalten ausschließlich durch CSS einen schmalen schwarzen Rahmen. Light und Dark Mode folgen automatisch der Systemeinstellung.
+Die gelieferten Dateien `campus-koethen-logo.png`, `campus-koethen-icon.png`, `site/og.png`, `site/campus-koethen-footer-icon.jpg`, `site/app-news-screen-de.jpg` und `site/app-news-screen-en.jpg` werden beim Build unverändert als Web-Assets übernommen. Die Website verwendet die selbst gehostete Variable Font Albert Sans; ihre OFL-Lizenz liegt unter `site/fonts/AlbertSans-OFL.txt`. Die App-Screenshots erhalten ausschließlich durch CSS einen schmalen schwarzen Rahmen. Light und Dark Mode folgen automatisch der Systemeinstellung.
 
 ## Store-Links setzen
 
@@ -69,4 +69,4 @@ Der Quellcode ist öffentlich im [GitHub-Repository](https://github.com/Leviora-
 
 ## Lizenz
 
-Der eigene Quellcode dieses Projekts ist ausschließlich unter der [GNU Affero General Public License v3.0](LICENSE) lizenziert (`AGPL-3.0-only`). Albert Sans sowie die Komponenten der Container-Basis behalten ihre jeweiligen Lizenzen. Copyright-Hinweise, Lizenztexte und Quellenverweise stehen in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Der eigene Quellcode dieses Projekts ist ausschließlich unter der [GNU Affero General Public License v3.0](LICENSE) lizenziert (`AGPL-3.0-only`). Albert Sans sowie die Komponenten der Container-Basis behalten ihre jeweiligen Lizenzen. Die von Erik Engler erstellten Logo- und Icon-Dateien, das OG-Bild und die App-Screenshots einschließlich ihrer redaktionellen Texte dürfen auf dieser Website verwendet werden; daraus folgt keine allgemeine Erlaubnis zur kommerziellen Weiterverwendung durch Dritte. Die in den Screenshots sichtbaren Tabler-Icons behalten ihre MIT-Lizenz. Copyright-Hinweise, Lizenztexte und Quellenverweise stehen in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

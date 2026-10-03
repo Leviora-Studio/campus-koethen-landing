@@ -84,8 +84,9 @@ assert(indexHtml.includes("AGPL-3.0-only"), "AGPL notice is missing");
 assert(englishIndexHtml.includes("AGPL-3.0-only"), "English AGPL notice is missing");
 assert(
   indexHtml.includes('href="/THIRD_PARTY_NOTICES.md"'),
-  "Third-party notices link is missing",
+  "Licence and rights notices link is missing",
 );
+assert(englishIndexHtml.includes('href="/THIRD_PARTY_NOTICES.md"'), "English licence and rights notices link is missing");
 assert(
   indexHtml.includes('href="/fonts/AlbertSans-OFL.txt"'),
   "Albert Sans license link is missing",
@@ -161,14 +162,19 @@ assert(
   "Tabler Icons attribution is missing",
 );
 assert(thirdPartyNotices.includes("Copyright (c) 2020 bigbadbob2003"), "Flutter icon package copyright is missing");
-assert(thirdPartyNotices.includes("Copyright (c) 2020-2026 Paweł Kuna"), "Tabler Icons copyright is missing");
+assert(thirdPartyNotices.includes("Copyright (c) 2020-2024 Paweł Kuna"), "Tabler Icons copyright is missing or incorrect");
+assert(thirdPartyNotices.includes("Copyright (C) 2002-2021 Igor Sysoev"), "nginx copyright is missing");
+assert(thirdPartyNotices.includes("Copyright (C) 2011-2026 Nginx, Inc."), "nginx corporate copyright is missing");
+assert(thirdPartyNotices.includes("Copyright (C) 2011-2023 F5, Inc."), "nginx Dockerfile copyright is missing");
+assert(thirdPartyNotices.includes("LicenseRef-Website-Assets"), "Website image rights notice is missing");
+assert(thirdPartyNotices.includes("does not grant third parties a general right to reuse the files\ncommercially"), "Website image reuse restriction is missing");
 assert(thirdPartyNotices.includes("App Store is a service mark"), "Apple attribution is missing");
 assert(thirdPartyNotices.includes("Google Play is a trademark"), "Google attribution is missing");
 assert(dockerfile.includes("nginx:1.31.4-alpine@sha256:"), "nginx base image is not pinned");
 assert(dockerfile.includes("node:24-alpine@sha256:"), "Node build image is not pinned");
 assert(
-  dockerfile.includes("AGPL-3.0-only AND LicenseRef-ThirdParty-Components"),
-  "Container license metadata does not reference third-party components",
+  dockerfile.includes("AGPL-3.0-only AND LicenseRef-ThirdParty-Components AND LicenseRef-Website-Assets"),
+  "Container license metadata does not reference all component rights",
 );
 assert(
   reverseProxyConfig.includes("server_name campus-koethen.sturahsa.de;"),

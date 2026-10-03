@@ -23,4 +23,6 @@ Diese Website und die App „Campus Köthen“ sind keine offiziellen Angebote d
 
 ## Rechte und Lizenzen
 
-Der Website-Code steht unter der GNU Affero General Public License v3.0. Die Lizenzen der selbst gehosteten Schrift und weiterer Drittkomponenten sind gesondert ausgewiesen. Die Lizenz des Website-Codes erstreckt sich nicht auf Rechte Dritter an einzelnen Inhalten und Komponenten.
+Der Website-Code steht unter der GNU Affero General Public License v3.0. Die Lizenzen der selbst gehosteten Schrift und weiterer Drittkomponenten sind in den [Lizenz- und Rechtehinweisen](/THIRD_PARTY_NOTICES.md) gesondert ausgewiesen. Die Lizenz des Website-Codes erstreckt sich nicht auf Rechte Dritter an einzelnen Inhalten und Komponenten.
+
+Die von Erik Engler erstellten Logo- und Icon-Dateien, das OG-Bild sowie die App-Screenshots einschließlich der darin gezeigten redaktionellen Texte dürfen auf dieser Website verwendet werden. Daraus folgt keine allgemeine Erlaubnis für Dritte, diese Dateien kommerziell weiterzuverwenden; dafür ist eine gesonderte Erlaubnis des Rechteinhabers erforderlich. Die in den Screenshots sichtbaren Tabler-Icons stehen unter ihrer eigenen Lizenz.
