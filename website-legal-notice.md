@@ -1,6 +1,6 @@
 # Campus Köthen website legal notice
 
-Last updated: 2 October 2026
+Last updated: 3 October 2026
 
 ## Provider of this website
 
@@ -16,6 +16,10 @@ Email: [stura@hs-anhalt.de](mailto:stura@hs-anhalt.de)
 ## Scope
 
 This legal notice applies to [campus-koethen.sturahsa.de](/en/), including its German version. The website provides information about the “Campus Köthen” mobile app and links to other services. The app has a separate provider, whose details appear in the [app legal notice](/en/legal/#legal-notice). The linked web view of the News Feed and other external websites have their own legal notices.
+
+## Independence notice
+
+This website and the “Campus Köthen” app are not official offerings of Hochschule Anhalt. The website is operated by the legally independent student body of Hochschule Anhalt. Hochschule Anhalt neither operates this website nor is responsible for its content.
 
 ## Rights and licences
 

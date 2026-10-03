@@ -1,6 +1,6 @@
 # Impressum der Website Campus Köthen
 
-Stand: 2. Oktober 2026
+Stand: 3. Oktober 2026
 
 ## Anbieter dieser Website
 
@@ -16,6 +16,10 @@ E-Mail: [stura@hs-anhalt.de](mailto:stura@hs-anhalt.de)
 ## Geltungsbereich
 
 Dieses Impressum gilt für die Website [campus-koethen.sturahsa.de](/) einschließlich ihrer englischen Fassung. Die Website informiert über die mobile App „Campus Köthen“ und verlinkt auf weitere Angebote. Die App hat einen eigenen Anbieter; dessen Angaben stehen im [App-Impressum](/rechtliches/#impressum). Für die verlinkte Web-Ansicht des News Feed und andere externe Seiten gelten deren eigene rechtliche Hinweise.
+
+## Unabhängigkeitshinweis
+
+Diese Website und die App „Campus Köthen“ sind keine offiziellen Angebote der Hochschule Anhalt. Die Website wird von der rechtlich selbstständigen Studierendenschaft der Hochschule Anhalt betrieben. Die Hochschule Anhalt ist weder Betreiberin dieser Website noch für ihre Inhalte verantwortlich.
 
 ## Rechte und Lizenzen
 
